@@ -137,3 +137,15 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Rust / Cargo
+target/
+Cargo.lock
+
+# WASM build output
+pkg/
+wasm-pack.log
+
+# Vite
+dist/
+.vite/
