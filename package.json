@@ -7,12 +7,24 @@
     "build:wasm": "cargo build --target wasm32-unknown-unknown --release && wasm-bindgen --target web --out-dir pkg target/wasm32-unknown-unknown/release/wasm_image_processor.wasm",
     "dev": "vite",
     "build": "npm run build:wasm && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:rust": "cargo test --lib",
+    "test:rust:wasm": "wasm-pack test --headless --chrome",
+    "test:all": "npm run test:rust && npm run test:run",
+    "test:all:ci": "npm run test:rust && npm run test:rust:wasm && npm run test:run"
   },
   "devDependencies": {
+    "@vitest/ui": "^4.0.18",
+    "canvas": "^3.2.1",
+    "happy-dom": "^20.7.0",
+    "jsdom": "^28.1.0",
     "vite": "^5.4.11",
+    "vite-plugin-top-level-await": "^1.4.4",
     "vite-plugin-wasm": "^3.3.0",
-    "vite-plugin-top-level-await": "^1.4.4"
+    "vitest": "^4.0.18"
   },
   "keywords": [
     "wasm",
@@ -21,5 +33,8 @@
     "image-processing"
   ],
   "author": "Joan Leon",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@webtui/css": "^0.1.6"
+  }
 }
